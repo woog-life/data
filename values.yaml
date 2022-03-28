@@ -1,0 +1,31 @@
+namespace: wooglife
+
+deployment:
+  name: data
+  image: ghcr.io/woog-life/data:__TAG__
+  imagePullPolicy: Always
+  revisionHistoryLimit: 1
+  replicas: 1
+  ports:
+  - 8080
+  labels:
+    app: data
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limit:
+    cpu: 300m
+    memory: 300Mi
+
+service:
+  name: data
+  port: 8080
+  targetPort: 8080
+  appSelector: data
+
+ingress:
+  hosts:
+    - data.woog.life
+  secret: tls-data
+  issuer: letsencrypt-issuer-http
+  name: data

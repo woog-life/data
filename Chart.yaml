@@ -1,0 +1,8 @@
+apiVersion: v2
+name: data
+description: Deploy some wooglife files
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+icon: https://helm.sh/img/favicon-152.png
+
