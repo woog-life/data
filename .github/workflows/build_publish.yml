@@ -34,16 +34,3 @@ jobs:
       - name: Push the tagged Docker image
         run: docker push ghcr.io/woog-life/data:${GITHUB_SHA}
 
-  deploy:
-    name: "Publish to k8s"
-    runs-on: ubuntu-latest
-    needs: build_push_docker
-    steps:
-      - uses: actions/checkout@v3
-      - name: update password in manifest.yml
-        run: sed -i -e "s#__TAG__#${GITHUB_SHA}#g" values.yaml
-      - name: install helm chart
-        uses: WyriHaximus/github-action-helm3@v2
-        with: 
-          exec: helm upgrade data . --install --namespace=wooglife --atomic
-          kubeconfig: ${{ secrets.KUBECONFIG_RAW }}
