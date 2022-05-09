@@ -2,7 +2,7 @@ namespace: wooglife
 
 deployment:
   name: data
-  image: ghcr.io/woog-life/data:d1ece986539b55561bc787d18ffcb20880dbcb5c
+  image: ghcr.io/woog-life/data:2a3ab8386c8392f4c908930e2f38257244dcfa3f
   imagePullPolicy: Always
   revisionHistoryLimit: 1
   replicas: 1
