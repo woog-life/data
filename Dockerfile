@@ -1,3 +1,3 @@
-FROM nginxinc/nginx-unprivileged:1.25.1
+FROM nginxinc/nginx-unprivileged:1.25.2
 
 ADD nginx.conf /etc/nginx/conf.d/default.conf
